@@ -1,11 +1,11 @@
 <robot name="test_robot" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="color" value="blue" />
+  <xacro:property name="color" value="red" />
 
   <material name="red">
-    <color rgba="1.0 0.0 0.0 2.0"/>
+    <color rgba="1.0 0.0 0.0 1"/>
   </material>
   <material name="blue">
-    <color rgba="0.0 0.0 1.0 2.0"/>
+    <color rgba="0.0 0.0 1.0 1"/>
   </material>
 
   <link name="base_link">

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <robot name="dtw_robot" xmlns:xacro="http://ros.org/wiki/xacro">
   <material name="gray">
-    <color rgba="0.5 0.5 0.5 2.5"/>
+    <color rgba="0.5 0.5 0.5 1"/>
   </material>
   <material name="red">
-    <color rgba="1.0 0.0 0.0 2.5"/>
+    <color rgba="1.0 0.0 0.0 1"/>
   </material>
 
   <xacro:macro name="wheel_macro" params="parent prefix xyz">
@@ -105,6 +105,30 @@
       <material name="gray" />
     </collision>
   </link>
+
+  <xacro:property name="height" value="1.2" />
+  <joint name="center_pillar" type="fixed">
+    <parent link="base_link"/>
+    <child  link="center_pillar_link"/>
+    <origin xyz="0 0 ${height/2+0.1}" rpy="0 0 0"/>
+  </joint>
+  <link name="center_pillar_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.1 ${height}" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.1 ${height}" />
+      </geometry>
+      <material name="gray" />
+    </collision>
+  </link>
+
   <gazebo reference="ball_link">
     <material>Gazebo/Gray</material>
     <mu1 value="0.5" />
